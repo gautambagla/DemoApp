@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nest_scroll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#000000"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ScrollingActivity"
+    tools:showIn="@layout/activity_scrolling">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:persistentDrawingCache="all">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:clipToPadding="true"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:cardMaxElevation="4dp"
+            app:cardUseCompatPadding="true"
+            app:contentPaddingBottom="16dp"
+            app:contentPaddingLeft="0dp"
+            app:contentPaddingRight="0dp"
+            app:contentPaddingTop="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/user1_name"
+                    style="@android:style/Widget.Material.TextView.SpinnerItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_toEndOf="@id/user_1"
+                    android:text="@string/user_1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/user_1"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="10dp"
+                    app:srcCompat="@drawable/user_1" />
+
+                <TextView
+                    android:id="@+id/user1_date"
+                    style="@android:style/Widget.Material.Light.TextView.SpinnerItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/user1_name"
+                    android:layout_alignBottom="@id/user_1"
+                    android:layout_alignParentStart="false"
+                    android:text="@string/date"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user1_date"
+                    android:layout_marginTop="16dp"
+                    android:overScrollMode="always"
+                    android:scrollbars="none">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <VideoView
+                            android:id="@+id/video_view"
+                            android:layout_width="370dp"
+                            android:layout_height="200dp"
+                            android:layout_alignParentLeft="false"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentRight="false"
+                            android:layout_marginLeft="10dp"
+                            android:elevation="5dp"
+                            android:fadeScrollbars="true"
+                            android:fitsSystemWindows="true"
+                            android:focusableInTouchMode="false"
+                            android:keepScreenOn="true"
+                            android:onClick="play"
+                            android:outlineAmbientShadowColor="#FFFFFF"
+                            android:outlineProvider="paddedBounds"
+                            android:requiresFadingEdge="horizontal|vertical"
+                            android:soundEffectsEnabled="true"
+                            android:tooltipText="@string/tooltip_text"
+                            tools:ignore="RtlHardcoded" />
+
+
+                        <TextView
+                            android:id="@+id/vid1"
+                            style="@android:style/Widget.Material.Light.TextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/video_view"
+                            android:layout_alignStart="@id/video_view"
+                            android:layout_alignEnd="@id/video_view"
+                            android:layout_marginTop="16dp"
+                            android:text="@string/vid1"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="#74FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/about"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_toEndOf="@id/video_view"
+                            android:text="@string/about"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textColor="#FFFFFF" />
+
+                        <ImageView
+                            android:id="@+id/image_subs"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/about"
+                            android:layout_alignEnd="@id/line"
+                            android:layout_alignBottom="@id/about"
+                            app:srcCompat="@drawable/subs" />
+
+                        <TextView
+                            android:id="@+id/text_fol"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/image_subs"
+                            android:layout_alignBottom="@id/image_subs"
+                            android:layout_marginEnd="-10dp"
+                            android:layout_toStartOf="@id/image_subs"
+                            android:text="1.1M"
+                            android:textColor="#FFFFFF"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/line"
+                            android:layout_width="370dp"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/about"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_toEndOf="@id/video_view"
+                            android:background="#7E7E7F" />
+
+                        <ImageView
+                            android:id="@+id/image_posts"
+                            android:layout_width="370dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignTop="@id/line"
+                            android:layout_alignEnd="@id/image_subs"
+                            android:layout_alignBottom="@id/vid1"
+                            android:layout_marginTop="6dp"
+                            android:layout_toStartOf="@id/about"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/maxresdefault" />
+
+                    </RelativeLayout>
+
+                </HorizontalScrollView>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clipToPadding="true"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:cardMaxElevation="4dp"
+            app:cardUseCompatPadding="true"
+            app:contentPaddingBottom="16dp"
+            app:contentPaddingLeft="0dp"
+            app:contentPaddingRight="0dp"
+            app:contentPaddingTop="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/user2_name"
+                    style="@android:style/Widget.Material.TextView.SpinnerItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_toEndOf="@id/user_2"
+                    android:text="@string/user_2"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/user_2"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="10dp"
+                    app:srcCompat="@drawable/user_1" />
+
+                <TextView
+                    android:id="@+id/user2_date"
+                    style="@android:style/Widget.Material.Light.TextView.SpinnerItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/user2_name"
+                    android:layout_alignBottom="@id/user_2"
+                    android:layout_alignParentStart="false"
+                    android:text="@string/date"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user2_date"
+                    android:layout_marginTop="16dp"
+                    android:overScrollMode="always"
+                    android:scrollbars="none">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <VideoView
+                            android:id="@+id/video_view2"
+                            android:layout_width="370dp"
+                            android:layout_height="200dp"
+                            android:layout_alignParentLeft="false"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentRight="false"
+                            android:layout_marginLeft="10dp"
+                            android:elevation="5dp"
+                            android:fadeScrollbars="true"
+                            android:fitsSystemWindows="true"
+                            android:focusableInTouchMode="false"
+                            android:keepScreenOn="true"
+                            android:onClick="play"
+                            android:outlineAmbientShadowColor="#FFFFFF"
+                            android:outlineProvider="paddedBounds"
+                            android:requiresFadingEdge="horizontal|vertical"
+                            android:soundEffectsEnabled="true"
+                            android:tooltipText="@string/tooltip_text"
+                            tools:ignore="RtlHardcoded" />
+
+
+                        <TextView
+                            android:id="@+id/vid2"
+                            style="@android:style/Widget.Material.Light.TextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/video_view2"
+                            android:layout_alignStart="@id/video_view2"
+                            android:layout_alignEnd="@id/video_view2"
+                            android:layout_marginTop="16dp"
+                            android:text="@string/vid2"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="#74FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/about2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_toEndOf="@id/video_view2"
+                            android:text="@string/about"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textColor="#FFFFFF" />
+
+                        <ImageView
+                            android:id="@+id/image_subs2"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/about2"
+                            android:layout_alignEnd="@id/line2"
+                            android:layout_alignBottom="@id/about2"
+                            app:srcCompat="@drawable/subs" />
+
+                        <TextView
+                            android:id="@+id/text_fol2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/image_subs2"
+                            android:layout_alignBottom="@id/image_subs2"
+                            android:layout_marginEnd="-10dp"
+                            android:layout_toStartOf="@id/image_subs2"
+                            android:text="1.1M"
+                            android:textColor="#FFFFFF"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/line2"
+                            android:layout_width="370dp"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/about2"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_toEndOf="@id/video_view2"
+                            android:background="#7E7E7F" />
+
+                        <ImageView
+                            android:id="@+id/image_posts2"
+                            android:layout_width="370dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignTop="@id/line2"
+                            android:layout_alignEnd="@id/image_subs2"
+                            android:layout_alignBottom="@id/vid2"
+                            android:layout_marginTop="6dp"
+                            android:layout_toStartOf="@id/about2"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/maxresdefault" />
+
+                    </RelativeLayout>
+
+                </HorizontalScrollView>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:clipToPadding="true"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:cardMaxElevation="4dp"
+            app:cardUseCompatPadding="true"
+            app:contentPaddingBottom="16dp"
+            app:contentPaddingLeft="0dp"
+            app:contentPaddingRight="0dp"
+            app:contentPaddingTop="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/user3_name"
+                    style="@android:style/Widget.Material.TextView.SpinnerItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_toEndOf="@id/user_3"
+                    android:text="@string/user_3"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/user_3"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="10dp"
+                    app:srcCompat="@drawable/user_1" />
+
+                <TextView
+                    android:id="@+id/user3_date"
+                    style="@android:style/Widget.Material.Light.TextView.SpinnerItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/user3_name"
+                    android:layout_alignBottom="@id/user_3"
+                    android:layout_alignParentStart="false"
+                    android:text="@string/date"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user3_date"
+                    android:layout_marginTop="16dp"
+                    android:overScrollMode="always"
+                    android:scrollbars="none">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <VideoView
+                            android:id="@+id/video_view3"
+                            android:layout_width="370dp"
+                            android:layout_height="200dp"
+                            android:layout_alignParentLeft="false"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentRight="false"
+                            android:layout_marginLeft="10dp"
+                            android:elevation="5dp"
+                            android:fadeScrollbars="true"
+                            android:fitsSystemWindows="true"
+                            android:focusableInTouchMode="false"
+                            android:keepScreenOn="true"
+                            android:onClick="play"
+                            android:outlineAmbientShadowColor="#FFFFFF"
+                            android:outlineProvider="paddedBounds"
+                            android:requiresFadingEdge="horizontal|vertical"
+                            android:soundEffectsEnabled="true"
+                            android:tooltipText="@string/tooltip_text"
+                            tools:ignore="RtlHardcoded" />
+
+
+                        <TextView
+                            android:id="@+id/vid3"
+                            style="@android:style/Widget.Material.Light.TextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/video_view3"
+                            android:layout_alignStart="@id/video_view3"
+                            android:layout_alignEnd="@id/video_view3"
+                            android:layout_marginTop="16dp"
+                            android:text="@string/vid3"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="#74FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/about3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_toEndOf="@id/video_view3"
+                            android:text="@string/about"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textColor="#FFFFFF" />
+
+                        <ImageView
+                            android:id="@+id/image_subs3"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/about3"
+                            android:layout_alignEnd="@id/line3"
+                            android:layout_alignBottom="@id/about3"
+                            app:srcCompat="@drawable/subs" />
+
+                        <TextView
+                            android:id="@+id/text_fol3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/image_subs3"
+                            android:layout_alignBottom="@id/image_subs3"
+                            android:layout_marginEnd="-10dp"
+                            android:layout_toStartOf="@id/image_subs3"
+                            android:text="1.1M"
+                            android:textColor="#FFFFFF"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/line3"
+                            android:layout_width="370dp"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/about3"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_toEndOf="@id/video_view3"
+                            android:background="#7E7E7F" />
+
+                        <ImageView
+                            android:id="@+id/image_posts3"
+                            android:layout_width="370dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignTop="@id/line3"
+                            android:layout_alignEnd="@id/image_subs3"
+                            android:layout_alignBottom="@id/vid3"
+                            android:layout_marginTop="6dp"
+                            android:layout_toStartOf="@id/about3"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/maxresdefault" />
+
+                    </RelativeLayout>
+
+                </HorizontalScrollView>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:clipToPadding="true"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:cardMaxElevation="4dp"
+            app:cardUseCompatPadding="true"
+            app:contentPaddingBottom="16dp"
+            app:contentPaddingLeft="0dp"
+            app:contentPaddingRight="0dp"
+            app:contentPaddingTop="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/user4_name"
+                    style="@android:style/Widget.Material.TextView.SpinnerItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_toEndOf="@id/user_4"
+                    android:text="@string/user_4"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/user_4"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="10dp"
+                    app:srcCompat="@drawable/user_1" />
+
+                <TextView
+                    android:id="@+id/user4_date"
+                    style="@android:style/Widget.Material.Light.TextView.SpinnerItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/user4_name"
+                    android:layout_alignBottom="@id/user_4"
+                    android:layout_alignParentStart="false"
+                    android:text="@string/date"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user4_date"
+                    android:layout_marginTop="16dp"
+                    android:overScrollMode="always"
+                    android:scrollbars="none">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <VideoView
+                            android:id="@+id/video_view4"
+                            android:layout_width="370dp"
+                            android:layout_height="200dp"
+                            android:layout_alignParentLeft="false"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentRight="false"
+                            android:layout_marginLeft="10dp"
+                            android:elevation="5dp"
+                            android:fadeScrollbars="true"
+                            android:fitsSystemWindows="true"
+                            android:focusableInTouchMode="false"
+                            android:keepScreenOn="true"
+                            android:onClick="play"
+                            android:outlineAmbientShadowColor="#FFFFFF"
+                            android:outlineProvider="paddedBounds"
+                            android:requiresFadingEdge="horizontal|vertical"
+                            android:soundEffectsEnabled="true"
+                            android:tooltipText="@string/tooltip_text"
+                            tools:ignore="RtlHardcoded" />
+
+
+                        <TextView
+                            android:id="@+id/vid4"
+                            style="@android:style/Widget.Material.Light.TextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/video_view4"
+                            android:layout_alignStart="@id/video_view4"
+                            android:layout_alignEnd="@id/video_view4"
+                            android:layout_marginTop="16dp"
+                            android:text="@string/vid4"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="#74FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/about4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_toEndOf="@id/video_view4"
+                            android:text="@string/about"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textColor="#FFFFFF" />
+
+                        <ImageView
+                            android:id="@+id/image_subs4"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/about4"
+                            android:layout_alignEnd="@id/line4"
+                            android:layout_alignBottom="@id/about4"
+                            app:srcCompat="@drawable/subs" />
+
+                        <TextView
+                            android:id="@+id/text_fol4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/image_subs4"
+                            android:layout_alignBottom="@id/image_subs4"
+                            android:layout_marginEnd="-10dp"
+                            android:layout_toStartOf="@id/image_subs4"
+                            android:text="1.1M"
+                            android:textColor="#FFFFFF"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/line4"
+                            android:layout_width="370dp"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/about4"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_toEndOf="@id/video_view4"
+                            android:background="#7E7E7F" />
+
+                        <ImageView
+                            android:id="@+id/image_posts4"
+                            android:layout_width="370dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignTop="@id/line4"
+                            android:layout_alignEnd="@id/image_subs4"
+                            android:layout_alignBottom="@id/vid4"
+                            android:layout_marginTop="6dp"
+                            android:layout_toStartOf="@id/about4"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/maxresdefault" />
+
+                    </RelativeLayout>
+
+                </HorizontalScrollView>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
